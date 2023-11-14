@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Your sites</h1>
+    <h2>Sites List</h2>
+    <a href="{% url 'VPN:site-create' %}">Create</a>
+    {% if sites %}
+    <ul>
+    {% for site in sites %}
+      <li>{{ site.url }} - <a href="/vpn/{{ site.alias }}">{{ site.alias }}</a> | <a href="{% url 'VPN:site-delete' pk=site.pk %}">delete</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <div>No sites.</div>
+    {% endif %}
+{% endblock %}

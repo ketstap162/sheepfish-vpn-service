@@ -1,0 +1,13 @@
+<div>
+    <a href="{% url 'VPN:home' %}">Home page</a>
+    <div style="display: inline; margin-left: 20px"></div>
+    {% if user.is_authenticated%}
+    {{ user.username }}
+    <div style="display: inline; margin-left: 20px"></div>
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+    <div style="display: inline; margin-left: 20px"></div>
+    <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+</div>

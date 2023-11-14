@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Delete Site</h2>
+  <p>Are you sure you want to delete the site "{{ site.url }}"?</p>
+  <form method="post" action="{% url 'VPN:site-delete' site.id %}">
+    {% csrf_token %}
+    <button type="submit">Yes</button>
+  </form>
+  <a href="{% url 'VPN:home' %}">Cancel</a>
+{% endblock %}
